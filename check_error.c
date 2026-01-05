@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2025/12/10 13:49:47 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/05 10:33:13 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	is_av_valid(char *av)
 {
-	int i;
-	long value;
-	
+	int		i;
+	long	value;
+
 	i = 0;
 	if (!av)
 		return (0);
@@ -37,14 +37,14 @@ int	is_av_valid(char *av)
 		return (0);
 	return (1);
 }
+
 void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack *current;
+	t_stack	*current;
 
 	if (!stack || !*stack)
-		return;
-
+		return ;
 	current = *stack;
 	while (current)
 	{
