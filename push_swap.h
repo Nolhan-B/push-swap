@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/05 10:40:41 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:17:57 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void		rra(t_stack **a);
 void		pa(t_stack **a, t_stack **b);
 void		rb(t_stack **b);
 void		rrb(t_stack **b);
+void		sb(t_stack **b);
+void		ss(t_stack **a, t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
+void		rr(t_stack **a, t_stack **b);
 
 //CHECK_ERRORS.C
 int			is_av_valid(char *av);

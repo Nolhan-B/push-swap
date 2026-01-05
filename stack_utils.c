@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:31:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2025/12/10 13:46:59 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:17:40 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*last;
+
 	if (!lst || !new)
 		return ;
 	if (*lst == NULL)
@@ -40,6 +41,7 @@ t_stack	*ft_lstlast(t_stack *lst)
 	}
 	return (lst);
 }
+
 t_stack	*ft_lstnew(int content)
 {
 	t_stack	*x;
@@ -53,9 +55,10 @@ t_stack	*ft_lstnew(int content)
 	x->index = -1;
 	return (x);
 }
+
 int	is_dup(t_stack *stack, int value)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!stack)
 		return (0);
@@ -69,13 +72,14 @@ int	is_dup(t_stack *stack, int value)
 	return (0);
 }
 
-
 t_stack	*ft_create_stack(char **av)
 {
-	t_stack	*a = NULL;
-	t_stack *new;
-	int i;
-	int value;
+	t_stack	*a;
+	t_stack	*new;
+	int		i;
+	int		value;
+
+	a = NULL;
 	i = 1;
 	while (av[i])
 	{
@@ -85,15 +89,14 @@ t_stack	*ft_create_stack(char **av)
 			ft_free_stack(&a);
 			return (NULL);
 		}
-		new =  ft_lstnew(value);
+		new = ft_lstnew(value);
 		if (!new)
 		{
 			ft_free_stack(&a);
 			return (NULL);
 		}
 		ft_lstadd_back(&a, new);
-			
 		i++;
 	}
 	return (a);
-} 
+}
