@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:46:21 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:11:27 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	ft_flags(char *av, t_params *flag)
 {
-	if (!strcmp(av, "--bench"))
+	if (!ft_strcmp(av, "--bench"))
 		flag->bench = 1;
-	else if(!strcmp(av, "--simple"))
+	else if(!ft_strcmp(av, "--simple"))
 		flag->simple = 1;
-	else if(!strcmp(av, "--medium"))
+	else if(!ft_strcmp(av, "--medium"))
 		flag->medium = 1;
-	else if(!strcmp(av, "--complex"))
+	else if(!ft_strcmp(av, "--complex"))
 		flag->complex = 1;
-	else if(!strcmp(av, "--adaptive"))
+	else if(!ft_strcmp(av, "--adaptive"))
 		flag->adaptive = 1;
 	else 
 		return (0);
@@ -54,9 +54,6 @@ int	parse_flag(char **av, t_params *flag)
 	return (i);
 }
 
-
-	
-
 void	init_flag(t_params *flag)
 {
 	flag->simple = 0;
@@ -87,12 +84,24 @@ int	param_manager(int ac, char **av, t_params *flag, t_stack *a)
 int main(int ac, char **av)
 {
 	t_params flag;
-	t_stack a;
-	t_stack b = NULL;
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+
+	b = NULL;
 	
-	if (!param_manager(ac, **av, &flag, &a))
+	if (!param_manager(ac, av, &flag, a))
 	{
 		write(2, "Error\n", 7);
 		return (0);
-	}	
+	}
+	printf("--- AVANT LE TRI ---\n");
+	print_stacks(a, b);
+	printf("--------------------\n\n");
+	
+	insertion_sort(&a, &b);
+
+	printf("\n--- APRES LE TRI ---\n");
+	print_stacks(a, b);
+	
+	return (0);
 }

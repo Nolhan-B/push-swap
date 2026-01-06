@@ -6,7 +6,7 @@
 #    By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 09:21:42 by nbarbosa          #+#    #+#              #
-#    Updated: 2025/12/15 16:04:29 by nbarbosa         ###   ########.fr        #
+#    Updated: 2026/01/06 13:51:42 by nbarbosa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

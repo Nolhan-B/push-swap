@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:33:38 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:04:26 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ int	get_index(t_stack *target, t_stack *a)
 	return (-1);
 }
 
-
+/*
 int main(void)
 {
 	t_stack *a = NULL;
@@ -222,7 +222,7 @@ int main(void)
 	ft_lstadd_back(&a, ft_lstnew(5));
 	ft_lstadd_back(&a, ft_lstnew(4));
 	ft_lstadd_back(&a, ft_lstnew(3));
-	ft_lstadd_back(&a, ft_lstnew(2));/*
+	ft_lstadd_back(&a, ft_lstnew(2));
 	ft_lstadd_back(&a, ft_lstnew(1));
 	ft_lstadd_back(&a, ft_lstnew(20));
 	ft_lstadd_back(&a, ft_lstnew(6));
@@ -247,5 +247,5 @@ int main(void)
 	print_stacks(a, b);
 	
 	return (0);
-*/
-	}
+
+	}*/

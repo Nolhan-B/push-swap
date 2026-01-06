@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:46:23 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:01:48 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_av_valid(char **av, int start)
 				return (0);
 			i++;
 		}
-		value = ft_atol(av);
+		value = ft_atol(*av);
 		if (value > INT_MAX || value < INT_MIN)
 			return (0);
 		start++;

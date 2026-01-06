@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:42:43 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:09:39 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		rrr(t_stack **a, t_stack **b);
 
 //FT_UTILS.C
 long		ft_atol(const char *nptr);
-
+int			ft_strcmp(char *s1, char *s2);
 
 // FT_LST_UTILS.C
 void		ft_lstadd_back(t_stack **lst, t_stack *new);
@@ -82,9 +82,11 @@ t_stack		*ft_create_stack(char **av, int start);
 
 
 //CHECK_ERRORS.C
-int			is_av_valid(char *av);
+int			is_av_valid(char **av, int start);
 void		ft_free_stack(t_stack **stack);
 
+//INSERTION_SORT.C
+void		insertion_sort(t_stack **a, t_stack **b);
 //MEDIUM_SORT.C
 // void		ft_assign_index(t_stack *a);
 // int			ft_sqrt(int n);
