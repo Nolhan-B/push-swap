@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:45:32 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/05 11:10:14 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:27:27 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,3 @@ long	ft_atol(const char *nptr)
 	return (result * sign);
 }
 
-int	ft_lstsize(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}

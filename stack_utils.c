@@ -3,60 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:31:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/05 16:11:13 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:22:31 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
-{
-	t_stack	*last;
-
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	last = ft_lstlast(*lst);
-	last->next = new;
-	new->prev = last;
-	return ;
-}
-
-t_stack	*ft_lstlast(t_stack *lst)
-{
-	if (!lst)
-	{
-		return (NULL);
-	}
-	while (lst->next)
-	{
-		lst = lst->next;
-	}
-	return (lst);
-}
-
-t_stack	*ft_lstnew(int content)
-{
-	t_stack	*x;
-
-	x = malloc(sizeof(t_stack));
-	if (!x)
-		return (NULL);
-	x->value = content;
-	x->next = NULL;
-	x->prev = NULL;
-	x->index = -1;
-	return (x);
-}
-
-int	is_dup(t_stack *stack, int value)
+static int	is_dup(t_stack *stack, int value)
 {
 	t_stack	*tmp;
 
