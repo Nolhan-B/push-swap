@@ -3,14 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:23:41 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:44:56 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	small_sort(t_stack **a)
+{
+	if (ft_lstsize(*a) == 2)
+		sort_two(a);
+	else
+		sort_three(a);
+}
+
+void	init_stack_b(t_stack **a, t_stack **b)
+{
+	pb(a, b);
+	pb(a, b);
+}
+
+int	get_target_pos(t_stack *a, t_stack *b)
+{
+	t_stack	*tmp;
+	int		pos;
+	int		target;
+
+	tmp = b;
+	pos = 0;
+	target = get_max_pos(b);
+	while (tmp->next)
+	{
+		if (a->value < tmp->value && a->value > tmp->next->value)
+			return (pos + 1);
+		tmp = tmp->next;
+		pos++;
+	}
+	if (a->value < tmp->value && a->value > b->value)
+		target = 0;
+	return (target);
+}
+
+void	final_rotate_b(t_stack **b)
+{
+	int	max_pos;
+	int	size;
+
+	max_pos = get_max_pos(*b);
+	size = ft_lstsize(*b);
+	if (max_pos <= size / 2)
+		while (max_pos-- > 0)
+			rb(b);
+	else
+		while (size - max_pos++ > 0)
+			rrb(b);
+}
 
 void	insertion_sort(t_stack **a, t_stack **b)
 {
@@ -25,70 +75,6 @@ void	insertion_sort(t_stack **a, t_stack **b)
 	final_rotate_b(b);
 	while (*b)
 		pa(a, b);
-}
-
-
-void	insertion_sort(t_stack **a, t_stack **b)
-{
-	t_stack	*tmpb;
-	int		pos;
-	int		target_pos;
-	int		max_pos;
-	int		size_b;
-
-	if (ft_lstsize(*a) == 3)
-	{
-		sort_three(a);
-		return ;
-	}
-	if (ft_lstsize(*a) == 2)
-	{
-		sort_two(a);
-		return ;
-	}
-	if (ft_lstsize(*a) > 3)
-	{
-		pb(a, b);
-		pb(a, b);
-	}
-
-	while (*a)
-	{
-		tmpb = *b;
-		pos = 0;
-		target_pos = get_max_pos(*b);
-		while (tmpb->next)
-		{
-			if ((*a)->value < tmpb->value && (*a)->value > tmpb->next->value)
-			{
-				target_pos = pos + 1;
-				break ;
-			}
-			tmpb = tmpb->next;
-			pos++;
-		}
-		if (!tmpb->next && target_pos == get_max_pos(*b))
-		{
-			if ((*a)->value < tmpb->value && (*a)->value > (*b)->value)
-				target_pos = 0;
-		}
-		move_stack_b(b, target_pos);
-		pb(a, b);
-	}
-	max_pos = get_max_pos(*b);
-	size_b = ft_lstsize(*b);
-	if (max_pos <= size_b / 2)
-	{
-		while (max_pos-- > 0)
-			rb(b);
-	}
-	else
-	{
-		while (size_b - max_pos++ > 0)
-			rrb(b);
-	}
-	while (*b)
-	pa(a, b);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++TEST++++++++++++++++++++++++++++++++++
@@ -188,6 +174,6 @@ int	get_index(t_stack *target, t_stack *a)
 
 // 	printf("\n--- APRES LE TRI ---\n");
 // 	print_stacks(a, b);
-	
+
 // 	return (0);
 // }
