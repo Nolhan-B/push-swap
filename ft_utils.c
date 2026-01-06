@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:45:32 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:56:15 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:20:07 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ long	ft_atol(const char *nptr)
 	}
 	return (result * sign);
 }
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_ab_function.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:04:59 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 11:42:37 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/06 14:20:55 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_stack **x)
+void	swap(t_stack **x)
 {
 	t_stack	*n1;
 	t_stack	*n2;
@@ -37,7 +37,6 @@ void swap(t_stack **x)
 	else
 		n1->next = NULL;
 }
-
 
 void	rotate(t_stack **x)
 {
@@ -78,4 +77,3 @@ void	reverse_rotate(t_stack **x)
 	(*x)->prev = temp;
 	*x = temp;
 }
-

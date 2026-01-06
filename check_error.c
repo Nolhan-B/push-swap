@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:01:48 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:14:08 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	is_av_valid(char **av, int start)
 			return (0);
 		start++;
 	}
-		return (1);
-	}
+	return (1);
+}
 
 void	ft_free_stack(t_stack **stack)
 {
