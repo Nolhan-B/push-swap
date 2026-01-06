@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:45:32 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:20:07 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:32:24 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *nptr)
 {
-	int		i;
-	int		result;
-	long	sign;
+	int				i;
+	long 		result;
+	long 		sign;
 
 	result = 0;
 	sign = 1;
@@ -33,6 +33,8 @@ long	ft_atol(const char *nptr)
 	{
 		result = result * 10;
 		result = result + nptr[i] - '0';
+		if (result > 2147483648) 
+            return (2147483649);
 		i++;
 	}
 	return (result * sign);

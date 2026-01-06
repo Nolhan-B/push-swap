@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:14:08 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:36:28 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	is_av_valid(char **av, int start)
 	int		i;
 	long	value;
 
-	i = 0;
 	while (av[start])
 	{
+		i = 0;
 		if (av[start][i] == '+' || av[start][i] == '-')
 		{
 			i++;
@@ -32,7 +32,7 @@ int	is_av_valid(char **av, int start)
 				return (0);
 			i++;
 		}
-		value = ft_atol(*av);
+		value = ft_atol(av[start]);
 		if (value > INT_MAX || value < INT_MIN)
 			return (0);
 		start++;

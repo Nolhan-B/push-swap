@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:44:56 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/06 14:58:23 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	small_sort(t_stack **a)
 {
 	if (ft_lstsize(*a) == 2)
 		sort_two(a);
-	else
+	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
+	else 
+		return ;
 }
 
 void	init_stack_b(t_stack **a, t_stack **b)

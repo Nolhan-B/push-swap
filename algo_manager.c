@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:19:21 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:36:23 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,19 @@ int	parse_flag(char **av, t_params *flag)
 	int	i;
 	int	j;
 
-	j = 0;
+	j = 1;
 	i = 1;
 	while (av[i] && i < 3)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 		{
 			if (!ft_flags(av[i], flag))
-			{
 				return (0);
-			}
+			j++;
 		}
 		i++;
 	}
-	return (i);
+	return (j);
 }
 
 void	init_flag(t_params *flag)
@@ -65,7 +64,7 @@ void	init_flag(t_params *flag)
 	flag->bench = 0;
 }
 
-int	param_manager(int ac, char **av, t_params *flag, t_stack *a)
+int	param_manager(int ac, char **av, t_params *flag, t_stack **a)
 {
 	int	start;
 
@@ -77,8 +76,8 @@ int	param_manager(int ac, char **av, t_params *flag, t_stack *a)
 		return (0);
 	if (!is_av_valid(av, start))
 		return (0);
-	a = ft_create_stack(av, start);
-	if (!a)
+	*a = ft_create_stack(av, start);
+	if (!*a)
 		return (0);
 	return (1);
 }
@@ -91,16 +90,17 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (!param_manager(ac, av, &flag, a))
+	if (!param_manager(ac, av, &flag, &a))
 	{
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 		return (0);
 	}
-	printf("--- AVANT LE TRI ---\n");
-	print_stacks(a, b);
-	printf("--------------------\n\n");
+	//printf("--- AVANT LE TRI ---\n");
+	//print_stacks(a, b);
+	//printf("--------------------\n\n");
 	insertion_sort(&a, &b);
-	printf("\n--- APRES LE TRI ---\n");
-	print_stacks(a, b);
+	//printf("\n--- APRES LE TRI ---\n");
+	//print_stacks(a, b);
+	ft_free_stack(&a);
 	return (0);
 }
