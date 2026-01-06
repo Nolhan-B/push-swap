@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:31:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:22:31 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/06 13:32:58 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,16 @@ static int	is_dup(t_stack *stack, int value)
 	return (0);
 }
 
-t_stack	*ft_create_stack(char **av)
+t_stack	*ft_create_stack(char **av, int start)
 {
 	t_stack	*a;
 	t_stack	*new;
-	int		i;
 	int		value;
 
 	a = NULL;
-	i = 1;
-	while (av[i])
+	while (av[start])
 	{
-		value = (int)ft_atol(av[i]);
+		value = (int)ft_atol(av[start]);
 		if (is_dup(a, value))
 		{
 			ft_free_stack(&a);
@@ -52,7 +50,7 @@ t_stack	*ft_create_stack(char **av)
 			return (NULL);
 		}
 		ft_lstadd_back(&a, new);
-		i++;
+		start++;
 	}
 	return (a);
 }

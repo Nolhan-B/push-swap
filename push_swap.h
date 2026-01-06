@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:27:22 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/06 13:34:23 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_stack;
+
+typedef struct s_params
+{
+	int simple;
+	int medium;
+	int complex;
+	int adaptive;
+	int bench;
+}	t_params; 
 
 //STACK_UTILS_AB_FUNCTION.C
 void		swap(t_stack **x);
@@ -49,9 +58,6 @@ void		rrr(t_stack **a, t_stack **b);
 
 ///////////////////////////////////////////////////
 
-//STACK_UTILS.C
-t_stack		*ft_create_stack(char **av);
-
 //FT_UTILS.C
 long		ft_atol(const char *nptr);
 
@@ -66,6 +72,26 @@ int			ft_lstsize(t_stack *lst);
 int			get_index(t_stack *target, t_stack *a);
 t_stack		*find_min(t_stack *a);
 void		simple_sort(t_stack	**a, t_stack **b);
+
+//STACK_UTILS.C
+void		ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack		*ft_lstlast(t_stack *lst);
+t_stack		*ft_lstnew(int content);
+int			is_dup(t_stack *stack, int value);
+t_stack		*ft_create_stack(char **av, int start);
+
+//SORT_UTILS.C
+void		sa(t_stack **a);
+void		pb(t_stack **a, t_stack **b);
+void		ra(t_stack **a);
+void		rra(t_stack **a);
+void		pa(t_stack **a, t_stack **b);
+void		rb(t_stack **b);
+void		rrb(t_stack **b);
+void		sb(t_stack **b);
+void		ss(t_stack **a, t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
+void		rr(t_stack **a, t_stack **b);
 
 //CHECK_ERRORS.C
 int			is_av_valid(char *av);
