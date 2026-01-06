@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 09:35:39 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:00:24 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ int	get_max_pos(t_stack *b)
 	}
 	return (max_pos);
 }
+void sort_two(t_stack **a)
+{
+	if ((*a)->value > (*a)->next->value)
+        sa(a);
+}
 
 void	move_stack_b(t_stack **b, int target_pos)
 {
@@ -55,12 +60,46 @@ void	move_stack_b(t_stack **b, int target_pos)
 	}
 }
 
+void sort_three(t_stack **a)
+{
+    int n1 = (*a)->value;
+    int n2 = (*a)->next->value;
+    int n3 = (*a)->next->next->value;
+
+    if (n1 > n2 && n2 < n3 && n1 < n3)
+        sa(a);
+    else if (n1 > n2 && n2 > n3 && n1 > n3)
+    {
+        sa(a);
+        rra(a);
+    }
+    else if (n1 > n2 && n2 < n3 && n1 > n3)
+        ra(a);
+    else if (n1 < n2 && n2 > n3 && n1 < n3)
+    {
+        sa(a);
+        ra(a);
+    }
+    else if (n1 < n2 && n2 > n3 && n1 > n3)
+        rra(a);
+}
+
 void	insertion_sort(t_stack **a, t_stack **b)
 {
 	t_stack *tmpb;
 	int pos;
 	int target_pos;
 
+	if (ft_lstsize(*a) == 3)
+	{
+		sort_three(a);
+		return ;
+	}
+	if (ft_lstsize(*a) == 2)
+	{
+		sort_two(a);
+		return ;
+	}
 	if (ft_lstsize(*a) > 3)
 	{
 		pb(a, b);
@@ -185,18 +224,6 @@ t_stack	*ft_lstlast(t_stack *lst)
 }
 
 // Fonction pour afficher la pile et voir ce qui se passe
-void print_stack(t_stack *s, char *name)
-{
-	printf("Stack %s: ", name);
-	if (!s)
-		printf("(vide)");
-	while (s)
-	{
-		printf("[%d] ", s->value);
-		s = s->next;
-	}
-	printf("\n");
-}
 
 void print_stacks(t_stack *a, t_stack *b)
 {
@@ -418,8 +445,8 @@ int main(void)
 	// Utilise tes propres fonctions (ici j'utilise des noms standards)
 	ft_lstadd_back(&a, ft_lstnew(5));
 	ft_lstadd_back(&a, ft_lstnew(4));
-	ft_lstadd_back(&a, ft_lstnew(3));
-	/*ft_lstadd_back(&a, ft_lstnew(2));
+	ft_lstadd_back(&a, ft_lstnew(3));/*
+	ft_lstadd_back(&a, ft_lstnew(2));
 	ft_lstadd_back(&a, ft_lstnew(1));
 	ft_lstadd_back(&a, ft_lstnew(20));
 	ft_lstadd_back(&a, ft_lstnew(6));
@@ -438,7 +465,7 @@ int main(void)
 	printf("--------------------\n\n");
 
 	// Lancement de ton algo
-	simple_sort(&a, &b);
+	insertion_sort(&a, &b);
 
 	printf("\n--- APRES LE TRI ---\n");
 	print_stacks(a, b);
