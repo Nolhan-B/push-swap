@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:34:23 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:42:43 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,6 @@ t_stack		*ft_lstnew(int content);
 int			is_dup(t_stack *stack, int value);
 t_stack		*ft_create_stack(char **av, int start);
 
-//SORT_UTILS.C
-void		sa(t_stack **a);
-void		pb(t_stack **a, t_stack **b);
-void		ra(t_stack **a);
-void		rra(t_stack **a);
-void		pa(t_stack **a, t_stack **b);
-void		rb(t_stack **b);
-void		rrb(t_stack **b);
-void		sb(t_stack **b);
-void		ss(t_stack **a, t_stack **b);
-void		rrr(t_stack **a, t_stack **b);
-void		rr(t_stack **a, t_stack **b);
 
 //CHECK_ERRORS.C
 int			is_av_valid(char *av);

@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:29:16 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:46:21 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	parse_flag(char **av, t_params *flag)
 
 	j = 0;
 	i = 1;
-	while (av[i])
+	while (av[i] && i < 3)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
 			if(!ft_flags(av[i], flag))
@@ -54,33 +54,7 @@ int	parse_flag(char **av, t_params *flag)
 	return (i);
 }
 
-int	is_av_valid(char **av, int start)
-{
-	int		i;
-	long	value;
 
-	i = 0;
-	while (av[start])
-	{
-		if (av[start][i] == '+' || av[start][i] == '-')
-		{
-			i++;
-			if (av[start][i] < '0' || av[start][i] > '9')
-				return (0);
-		}
-		while (av[start][i])
-		{
-			if (av[start][i] < '0' || av[start][i] > '9')
-				return (0);
-			i++;
-		}
-		value = ft_atol(av);
-		if (value > INT_MAX || value < INT_MIN)
-			return (0);
-		start++;
-	}
-		return (1);
-	}
 	
 
 void	init_flag(t_params *flag)

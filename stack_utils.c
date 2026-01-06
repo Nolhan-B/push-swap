@@ -6,13 +6,13 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:31:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:32:58 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:41:44 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_dup(t_stack *stack, int value)
+int	is_dup(t_stack *stack, int value)
 {
 	t_stack	*tmp;
 

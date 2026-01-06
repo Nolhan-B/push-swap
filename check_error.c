@@ -6,37 +6,39 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/05 12:49:31 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:46:23 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_av_valid(char *av)
+int	is_av_valid(char **av, int start)
 {
 	int		i;
 	long	value;
 
 	i = 0;
-	if (!av)
-		return (0);
-	if (av[i] == '+' || av[i] == '-')
+	while (av[start])
 	{
-		i++;
-		if (av[i] < '0' || av[i] > '9')
+		if (av[start][i] == '+' || av[start][i] == '-')
+		{
+			i++;
+			if (av[start][i] < '0' || av[start][i] > '9')
+				return (0);
+		}
+		while (av[start][i])
+		{
+			if (av[start][i] < '0' || av[start][i] > '9')
+				return (0);
+			i++;
+		}
+		value = ft_atol(av);
+		if (value > INT_MAX || value < INT_MIN)
 			return (0);
+		start++;
 	}
-	while (av[i])
-	{
-		if (av[i] < '0' || av[i] > '9')
-			return (0);
-		i++;
+		return (1);
 	}
-	value = ft_atol(av);
-	if (value > INT_MAX || value < INT_MIN)
-		return (0);
-	return (1);
-}
 
 void	ft_free_stack(t_stack **stack)
 {
