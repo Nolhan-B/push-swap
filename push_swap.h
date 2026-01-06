@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:42:43 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:14:08 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_list
 
 typedef struct s_params
 {
-	int simple;
-	int medium;
-	int complex;
-	int adaptive;
-	int bench;
-}	t_params; 
+	int	simple;
+	int	medium;
+	int	complex;
+	int	adaptive;
+	int	bench;
+}	t_params;
 
 //STACK_UTILS_AB_FUNCTION.C
 void		swap(t_stack **x);
@@ -85,11 +85,13 @@ t_stack		*ft_create_stack(char **av, int start);
 int			is_av_valid(char *av);
 void		ft_free_stack(t_stack **stack);
 
-//MEDIUM_SORT.C
-// void		ft_assign_index(t_stack *a);
-// int			ft_sqrt(int n);
-// int			find_index(t_stack *b, int current_index);
-// void		ft_back_to_a(t_stack **a, t_stack **b, int size);
-// void		chunk_sort(t_stack **a, t_stack **b);
+//INSERTION_SORT.C
+void 		print_stacks(t_stack *a, t_stack *b);
+
+//INSERTION_SORT_UTILS.C
+int			get_max_pos(t_stack *b);
+void		sort_two(t_stack **a);
+void		move_stack_b(t_stack **b, int target_pos);
+void		sort_three(t_stack **a);
 
 #endif
