@@ -6,13 +6,16 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 13:44:27 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:51:38 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_select_sort()
+// void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
+// {
+	
+// }
 double	ft_disorder(t_stack *a)
 {
 	int		wrong;
@@ -159,10 +162,10 @@ int	main(int ac, char **av)
 	//printf("--- AVANT LE TRI ---\n");
 	//print_stacks(a, b);
 	//printf("--------------------\n\n");
-	//dis = ft_disorder(a);
+	dis = ft_disorder(a);
 	insertion_sort(&a, &b, &flag); // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
 	/* faut aussi que selon le choix du type de tri ca modifie la class de flags */
-	ft_select_sort(&a, &b, &flag);
+	//ft_select_sort(&a, &b, &flag);
 	ft_print_bench(&flag, dis);
 	//printf("\n--- APRES LE TRI ---\n");
 	//print_stacks(a, b);
