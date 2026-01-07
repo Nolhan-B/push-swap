@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 15:29:18 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:33:53 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,9 +185,7 @@ int	main(int ac, char **av)
 	}
 	/*printf("--- AVANT LE TRI ---\n");
 	print_stacks(a, b);
-	printf("--------------------\n\n");
-	 A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
-	 faut aussi que selon le choix du type de tri ca modifie la class de flags */
+	printf("--------------------\n\n");*/
 	ft_select_sort(&a, &b, &flag);
 	/*printf("\n--- APRES LE TRI ---\n");
 	print_stacks(a, b);*/
