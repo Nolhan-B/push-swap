@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:59 by nbilyj            #+#    #+#             */
-/*   Updated: 2026/01/07 11:08:56 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:20:22 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	get_max_pos(t_stack *b)
 {
 	int		i;
 	int		max_value;
-	int 	max_pos;
+	int		max_pos;
 	t_stack	*tmp;
 
 	i = 0;
@@ -36,7 +36,7 @@ int	get_max_pos(t_stack *b)
 	return (max_pos);
 }
 
-void	sort_two(t_stack **a,t_params *flags)
+void	sort_two(t_stack **a, t_params *flags)
 {
 	if ((*a)->value > (*a)->next->value)
 		sa(a, flags);
@@ -47,7 +47,6 @@ void	move_stack_b(t_stack **b, int target_pos, t_params *flags)
 	int	size;
 
 	size = ft_lstsize(*b);
-
 	if (target_pos <= size / 2)
 	{
 		while (target_pos-- > 0)

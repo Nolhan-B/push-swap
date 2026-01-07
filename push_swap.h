@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 15:03:17 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:22:15 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 # include <unistd.h>
 # include <limits.h>
 
-#define SA 0
-#define SB 1
-#define SS 2
-#define PA 3
-#define PB 4
-#define RA 5
-#define RB 6
-#define RR 7
-#define RRA 8
-#define RRB 9
-#define RRR 10
+# define SA 0
+# define SB 1
+# define SS 2
+# define PA 3
+# define PB 4
+# define RA 5
+# define RB 6
+# define RR 7
+# define RRA 8
+# define RRB 9
+# define RRR 10
 
 typedef struct s_list
 {
@@ -43,7 +43,7 @@ typedef struct s_bench
 	int		total;
 	char	*strat;
 	char	*class;
-} t_bench;
+}	t_bench;
 
 typedef struct s_params
 {
@@ -54,7 +54,6 @@ typedef struct s_params
 	int		bench;
 	t_bench	data;
 }	t_params;
-
 
 //STACK_UTILS_AB_FUNCTION.C
 void		swap(t_stack **x);
@@ -97,7 +96,6 @@ t_stack		*ft_lstnew(int content);
 int			is_dup(t_stack *stack, int value);
 t_stack		*ft_create_stack(char **av, int start);
 
-
 //CHECK_ERRORS.C
 int			is_av_valid(char **av, int start);
 void		ft_free_stack(t_stack **stack);
@@ -110,7 +108,7 @@ void		insertion_sort(t_stack **a, t_stack **b, t_params *flags);
 // int			find_index(t_stack *b, int current_index);
 // void		ft_back_to_a(t_stack **a, t_stack **b, int size);
 // void		chunk_sort(t_stack **a, t_stack **b);
-void 		print_stacks(t_stack *a, t_stack *b);
+void		print_stacks(t_stack *a, t_stack *b);
 
 //INSERTION_SORT_UTILS.C
 int			get_max_pos(t_stack *b);
@@ -119,7 +117,7 @@ void		move_stack_b(t_stack **b, int target_pos, t_params *flags);
 void		sort_three(t_stack **a, t_params *flags);
 
 //FT_PRINTF_STDERR.C
-int			ft_printf(const char *str, ...);
+int			ft_printf_stderr(const char *str, ...);
 
 //PRINTF_UTILS.C
 int			ft_putchar(unsigned int c);

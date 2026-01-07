@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 15:04:47 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:29:18 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 double	ft_disorder(t_stack *a)
 {
-	int		wrong;
-	int		total_pairs;
+	int			wrong;
+	int			total_pairs;
 	t_stack		*i;
 	t_stack		*j;
 
@@ -50,47 +50,48 @@ static void	ft_set_strat(t_params *flag, char *s, char *c, int type)
 }
 
 void	ft_print_bench(t_params *flags, double dis)
-{	
+{
 	int	*ops;
-	
+
 	if (flags->bench <= 0)
 		return ;
 	ops = flags->data.ops;
-	ft_printf("[bench] disorder: %f%%\n", dis);
-	ft_printf("[bench] strategy: %s / %s\n",flags->data.strat, flags->data.class);
-	ft_printf("[bench] total_ops: %d\n",flags->data.total);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+	ft_printf_stderr("[bench] disorder: %f%%\n", dis);
+	ft_printf_stderr("[bench] strategy: %s / %s\n",
+		flags->data.strat, flags->data.class);
+	ft_printf_stderr("[bench] total_ops: %d\n", flags->data.total);
+	ft_printf_stderr("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		ops[SA], ops[SB], ops[SS], ops[PA], ops[PB]);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
-		ops[RA], ops[RB], ops[RR], ops[RRA], ops[RRB], ops[RRR]);	
+	ft_printf_stderr("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		ops[RA], ops[RB], ops[RR], ops[RRA], ops[RRB], ops[RRR]);
 }
 
 void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
 {
-	double dis;
-	// |||||||||||||||||||TOUT FONCTIONNE MANQUE JUSTE LES ALGO POUR POUVOIR DECOMMENTER ||||||||||||
+	double	dis;
+	/*TOUT FONCTIONNE MANQUE JUSTE LES ALGO POUR POUVOIR DECOMMENTER*/
 	dis = ft_disorder(*a);
 	if (flag->adaptive == 1)
 	{
-		// if (dis <= 10.0)
-		// {
-			ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
+		/* if (dis <= 10.0)
+		 {*/
+		ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
 	}
-	// 	else if (dis <= 50.0)
-	// 	{
-	// 		ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
-	// 	}
-	// 	else if (dis > 50.0)
-	// 	{
-	// 		ft_set_strat(flag, "Adaptive (Radix)", "O(n log n)", 3);
-	// 	}
-	// }
+	/* 	else if (dis <= 50.0)
+	 	{
+	 		ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
+	 	}
+	 	else if (dis > 50.0)
+	 	{
+	 		ft_set_strat(flag, "Adaptive (Radix)", "O(n log n)", 3);
+	 	}
+	 }*/
 	if (flag->simple == 1)
 		insertion_sort(a, b, flag);
-	// else if (flag->medium == 1)
-	// 	medium_sort(a, b, flag);
-	// else if (flag->complex == 1)
-	// 	complex_sort(a, b, flag);
+	/* else if (flag->medium == 1)
+	 	medium_sort(a, b, flag);
+	 else if (flag->complex == 1)
+	 	complex_sort(a, b, flag);*/
 	ft_print_bench(flag, dis);
 }
 
@@ -134,7 +135,7 @@ int	parse_flag(char **av, t_params *flag)
 void	init_flag(t_params *flag)
 {
 	int	i;
-	
+
 	i = 0;
 	flag->simple = 0;
 	flag->medium = 0;
@@ -174,7 +175,7 @@ int	main(int ac, char **av)
 	t_params	flag;
 	t_stack		*a;
 	t_stack		*b;
-	
+
 	a = NULL;
 	b = NULL;
 	if (!param_manager(ac, av, &flag, &a))
@@ -182,15 +183,14 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	
-	//printf("--- AVANT LE TRI ---\n");
-	//print_stacks(a, b);
-	//printf("--------------------\n\n");
-	 // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
-	/* faut aussi que selon le choix du type de tri ca modifie la class de flags */
+	/*printf("--- AVANT LE TRI ---\n");
+	print_stacks(a, b);
+	printf("--------------------\n\n");
+	 A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
+	 faut aussi que selon le choix du type de tri ca modifie la class de flags */
 	ft_select_sort(&a, &b, &flag);
-	//printf("\n--- APRES LE TRI ---\n");
-	//print_stacks(a, b);
+	/*printf("\n--- APRES LE TRI ---\n");
+	print_stacks(a, b);*/
 	ft_free_stack(&a);
 	return (0);
 }
