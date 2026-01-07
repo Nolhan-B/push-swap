@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 14:31:08 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:04:47 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	ft_print_bench(t_params *flags, double dis)
 	if (flags->bench <= 0)
 		return ;
 	ops = flags->data.ops;
-	printf("[bench] disorder: %.2f%%\n", dis);
-	printf("[bench] strategy: %s / %s\n",flags->data.strat, flags->data.class);
-	printf("[bench] total_ops: %d\n",flags->data.total);
-	printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+	ft_printf("[bench] disorder: %f%%\n", dis);
+	ft_printf("[bench] strategy: %s / %s\n",flags->data.strat, flags->data.class);
+	ft_printf("[bench] total_ops: %d\n",flags->data.total);
+	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		ops[SA], ops[SB], ops[SS], ops[PA], ops[PB]);
-	printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		ops[RA], ops[RB], ops[RR], ops[RRA], ops[RRB], ops[RRR]);	
 }
 

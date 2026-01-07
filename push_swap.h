@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 11:53:16 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:03:17 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,13 @@ int			get_max_pos(t_stack *b);
 void		sort_two(t_stack **a, t_params *flags);
 void		move_stack_b(t_stack **b, int target_pos, t_params *flags);
 void		sort_three(t_stack **a, t_params *flags);
+
+//FT_PRINTF_STDERR.C
+int			ft_printf(const char *str, ...);
+
+//PRINTF_UTILS.C
+int			ft_putchar(unsigned int c);
+int			ft_putnbr(int n);
+int			ft_putstr(const char *s);
 
 #endif
