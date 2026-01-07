@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 11:10:57 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 11:53:55 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	insertion_sort(t_stack **a, t_stack **b, t_params *flags)
 	init_stack_b(a, b, flags);
 	while (*a)
 	{
-		move_stack_b(b, get_target_pos(*a, *b));
+		move_stack_b(b, get_target_pos(*a, *b), flags);
 		pb(a, b, flags);
 	}
 	final_rotate_b(b, flags);

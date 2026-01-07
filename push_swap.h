@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 11:36:02 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 11:53:16 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_list
 
 typedef struct s_bench
 {
-	int		op[11];
+	int		ops[11];
 	int		total;
 	char	*strat;
 	char	*class;
@@ -115,7 +115,7 @@ void 		print_stacks(t_stack *a, t_stack *b);
 //INSERTION_SORT_UTILS.C
 int			get_max_pos(t_stack *b);
 void		sort_two(t_stack **a, t_params *flags);
-void		move_stack_b(t_stack **b, int target_pos);
+void		move_stack_b(t_stack **b, int target_pos, t_params *flags);
 void		sort_three(t_stack **a, t_params *flags);
 
 #endif

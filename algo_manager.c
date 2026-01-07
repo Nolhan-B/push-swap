@@ -6,11 +6,54 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 10:56:53 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:44:27 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_select_sort()
+double	ft_disorder(t_stack *a)
+{
+	int		wrong;
+	int		total_pairs;
+	t_stack		*i;
+	t_stack		*j;
+
+	if (!a || !a->next)
+		return (0.00);
+	total_pairs = 0;
+	wrong = 0;
+	i = a;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			total_pairs++;
+			if (i->value > j->value)
+				wrong++;
+			j = j->next;
+		}
+		i = i->next;
+	}
+	return ((double)wrong / total_pairs);
+}
+
+void	ft_print_bench(t_params *flags, double dis)
+{	
+	int	*ops;
+	if (flags->bench <= 0)
+		return ;
+	ops = flags->data.ops;
+	printf("[bench] disorder: %.2f%%\n", (dis * 100));
+	printf("[bench] strategy: %s / %s\n",flags->data.strat, flags->data.class);
+	printf("[bench] total_ops: %d\n",flags->data.total);
+	printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+		ops[SA], ops[SB], ops[SS], ops[PA], ops[PB]);
+	printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		ops[RA], ops[RB], ops[RR], ops[RRA], ops[RRB], ops[RRR]);	
+}
 
 static void	ft_set_strat(t_params *flag, char *s, char *c, int type)
 {
@@ -61,6 +104,9 @@ int	parse_flag(char **av, t_params *flag)
 
 void	init_flag(t_params *flag)
 {
+	int	i;
+	
+	i = 0;
 	flag->simple = 0;
 	flag->medium = 0;
 	flag->complex = 0;
@@ -68,6 +114,12 @@ void	init_flag(t_params *flag)
 	flag->bench = 0;
 	flag->data.strat = "Adaptive";
 	flag->data.class = "O(n log n)";
+	flag->data.total = 0;
+	while (i < 11)
+	{
+		flag->data.ops[i] = 0;
+		i++;
+	}
 }
 
 int	param_manager(int ac, char **av, t_params *flag, t_stack **a)
@@ -93,18 +145,25 @@ int	main(int ac, char **av)
 	t_params	flag;
 	t_stack		*a;
 	t_stack		*b;
-
+	double		dis;
+	
 	a = NULL;
 	b = NULL;
+
 	if (!param_manager(ac, av, &flag, &a))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
+	
 	//printf("--- AVANT LE TRI ---\n");
 	//print_stacks(a, b);
 	//printf("--------------------\n\n");
-	insertion_sort(&a, &b, &flag);
+	//dis = ft_disorder(a);
+	insertion_sort(&a, &b, &flag); // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
+	/* faut aussi que selon le choix du type de tri ca modifie la class de flags */
+	ft_select_sort(&a, &b, &flag);
+	ft_print_bench(&flag, dis);
 	//printf("\n--- APRES LE TRI ---\n");
 	//print_stacks(a, b);
 	ft_free_stack(&a);
