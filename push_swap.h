@@ -96,6 +96,7 @@ t_stack		*ft_lstlast(t_stack *lst);
 t_stack		*ft_lstnew(int content);
 int			is_dup(t_stack *stack, int value);
 t_stack		*ft_create_stack(char **av, int start);
+t_stack 	*ft_index_stack_elements(t_stack *a);
 
 
 //CHECK_ERRORS.C
@@ -118,4 +119,9 @@ void		sort_two(t_stack **a, t_params *flags);
 void		move_stack_b(t_stack **b, int target_pos, t_params *flags);
 void		sort_three(t_stack **a, t_params *flags);
 
+//MEDIUM_SORT.C
+void medium_sort(t_stack **a, t_stack **b, t_params *flags);
+void push_chunks(t_stack **a, t_stack **b, int chunk_size, t_params *flags);
+void rebuild_stack(t_stack **a, t_stack **b, t_params *flags);
+void bring_max_to_top(t_stack **b, int max_index, t_params *flags);
 #endif

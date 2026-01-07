@@ -14,7 +14,7 @@
 
 // void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
 // {
-	
+
 // }
 double	ft_disorder(t_stack *a)
 {
@@ -140,6 +140,7 @@ int	param_manager(int ac, char **av, t_params *flag, t_stack **a)
 	*a = ft_create_stack(av, start);
 	if (!*a)
 		return (0);
+	ft_index_stack_elements(*a);
 	return (1);
 }
 
@@ -163,9 +164,11 @@ int	main(int ac, char **av)
 	//print_stacks(a, b);
 	//printf("--------------------\n\n");
 	dis = ft_disorder(a);
-	insertion_sort(&a, &b, &flag); // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
+	// insertion_sort(&a, &b, &flag); // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
 	/* faut aussi que selon le choix du type de tri ca modifie la class de flags */
 	//ft_select_sort(&a, &b, &flag);
+
+	medium_sort(&a, &b, &flag);
 	ft_print_bench(&flag, dis);
 	//printf("\n--- APRES LE TRI ---\n");
 	//print_stacks(a, b);

@@ -54,3 +54,26 @@ t_stack	*ft_create_stack(char **av, int start)
 	}
 	return (a);
 }
+
+t_stack *ft_index_stack_elements(t_stack *a)
+{
+	t_stack *current;
+	t_stack *tmp;
+	int      index;
+
+	current = a;
+	while (current)
+	{
+		index = 0;
+		tmp = a;
+		while (tmp)
+		{
+			if (tmp->value < current->value)
+				index++;
+			tmp = tmp->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+	return (a);
+}
