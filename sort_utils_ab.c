@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_ab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:32:17 by nbilyj            #+#    #+#             */
-/*   Updated: 2026/01/06 11:34:12 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/07 11:42:35 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, t_params *flags)
 {
 	swap(a);
 	swap(b);
 	write(1, "ss\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, t_params *flags)
 {
 	rotate(a);
 	rotate(b);
 	write(1, "rr\n", 3);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, t_params *flags)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);

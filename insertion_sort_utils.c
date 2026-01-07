@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:59 by nbilyj            #+#    #+#             */
-/*   Updated: 2026/01/06 14:11:02 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/07 11:08:56 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	get_max_pos(t_stack *b)
 	return (max_pos);
 }
 
-void	sort_two(t_stack **a)
+void	sort_two(t_stack **a,t_params *flags)
 {
 	if ((*a)->value > (*a)->next->value)
-		sa(a);
+		sa(a, flags);
 }
 
-void	move_stack_b(t_stack **b, int target_pos)
+void	move_stack_b(t_stack **b, int target_pos, t_params *flags)
 {
 	int	size;
 
@@ -51,19 +51,19 @@ void	move_stack_b(t_stack **b, int target_pos)
 	if (target_pos <= size / 2)
 	{
 		while (target_pos-- > 0)
-			rb(b);
+			rb(b, flags);
 	}
 	else
 	{
 		while (size > target_pos)
 		{
-			rrb(b);
+			rrb(b, flags);
 			target_pos++;
 		}
 	}
 }
 
-void	sort_three(t_stack **a)
+void	sort_three(t_stack **a, t_params *flags)
 {
 	int	n1;
 	int	n2;
@@ -73,19 +73,19 @@ void	sort_three(t_stack **a)
 	n2 = (*a)->next->value;
 	n3 = (*a)->next->next->value;
 	if (n1 > n2 && n2 < n3 && n1 < n3)
-		sa(a);
+		sa(a, flags);
 	else if (n1 > n2 && n2 > n3 && n1 > n3)
 	{
-		sa(a);
-		rra(a);
+		sa(a, flags);
+		rra(a, flags);
 	}
 	else if (n1 > n2 && n2 < n3 && n1 > n3)
-		ra(a);
+		ra(a, flags);
 	else if (n1 < n2 && n2 > n3 && n1 < n3)
 	{
-		sa(a);
-		ra(a);
+		sa(a, flags);
+		ra(a, flags);
 	}
 	else if (n1 < n2 && n2 > n3 && n1 > n3)
-		rra(a);
+		rra(a, flags);
 }

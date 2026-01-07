@@ -6,26 +6,26 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 14:58:23 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 11:10:57 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	small_sort(t_stack **a)
+void	small_sort(t_stack **a, t_params *flags)
 {
 	if (ft_lstsize(*a) == 2)
-		sort_two(a);
+		sort_two(a, flags);
 	else if (ft_lstsize(*a) == 3)
-		sort_three(a);
+		sort_three(a, flags);
 	else 
 		return ;
 }
 
-void	init_stack_b(t_stack **a, t_stack **b)
+void	init_stack_b(t_stack **a, t_stack **b, t_params *flags)
 {
-	pb(a, b);
-	pb(a, b);
+	pb(a, b, flags);
+	pb(a, b, flags);
 }
 
 int	get_target_pos(t_stack *a, t_stack *b)
@@ -49,7 +49,7 @@ int	get_target_pos(t_stack *a, t_stack *b)
 	return (target);
 }
 
-void	final_rotate_b(t_stack **b)
+void	final_rotate_b(t_stack **b, t_params *flags)
 {
 	int	max_pos;
 	int	size;
@@ -58,25 +58,25 @@ void	final_rotate_b(t_stack **b)
 	size = ft_lstsize(*b);
 	if (max_pos <= size / 2)
 		while (max_pos-- > 0)
-			rb(b);
+			rb(b, flags);
 	else
 		while (size - max_pos++ > 0)
-			rrb(b);
+			rrb(b, flags);
 }
 
-void	insertion_sort(t_stack **a, t_stack **b)
+void	insertion_sort(t_stack **a, t_stack **b, t_params *flags)
 {
 	if (ft_lstsize(*a) <= 3)
-		return (small_sort(a));
-	init_stack_b(a, b);
+		return (small_sort(a, flags));
+	init_stack_b(a, b, flags);
 	while (*a)
 	{
 		move_stack_b(b, get_target_pos(*a, *b));
-		pb(a, b);
+		pb(a, b, flags);
 	}
-	final_rotate_b(b);
+	final_rotate_b(b, flags);
 	while (*b)
-		pa(a, b);
+		pa(a, b, flags);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++TEST++++++++++++++++++++++++++++++++++
