@@ -6,7 +6,7 @@
 /*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbilyj            #+#    #+#             */
-/*   Updated: 2026/01/08 10:40:49 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/08 11:16:32 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,12 @@ void	medium_sort(t_stack **a, t_stack **b, t_params *flags)
 	int	c_size;
 
 	size = ft_lstsize(*a);
+	if (size < 1)
+		return ;
 	c_count = get_chunk_count(size);
 	c_size = size / c_count;
+	if (c_size < 1)
+		c_size = 1;
 	push_chunks(a, b, c_size, flags);
 	rebuild_stack(a, b, flags);
 }

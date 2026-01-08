@@ -6,7 +6,7 @@
 /*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/08 10:34:55 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/08 11:19:51 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,19 @@ void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
 		 {*/
 		ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
 	}
-	/* 	else if (dis <= 50.0)
-	 	{
-	 		ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
-	 	}
-	 	else if (dis > 50.0)
+	else /*if (dis <= 50.0)*/
+	{
+		ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
+	}
+	 	/*else if (dis > 50.0)
 	 	{
 	 		ft_set_strat(flag, "Adaptive (Radix)", "O(n log n)", 3);
 	 	}
 	 }*/
 	if (flag->simple == 1)
 		insertion_sort(a, b, flag);
-	/* else if (flag->medium == 1)
-	 	medium_sort(a, b, flag);
+	else if (flag->medium == 1)
+	 	medium_sort(a, b, flag);/*
 	 else if (flag->complex == 1)
 	 	complex_sort(a, b, flag);*/
 	ft_print_bench(flag, dis);
