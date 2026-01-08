@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_manager.c                                     :+:      :+:    :+:   */
+/*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>          +#+  +:+       +#+            */
+/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 11:16:31 by nbilyj          #+#    #+#               */
-/*   Updated: 2026/01/07 15:51:38 by nbilyj         ###   ########.fr         */
+/*   Created: 2026/01/06 11:16:31 by nbilyj            #+#    #+#             */
+/*   Updated: 2026/01/08 10:40:49 by nbilyj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	rebuild_stack(t_stack **a, t_stack **b, t_params *flags)
 	}
 }
 
-void	push_chunks(t_stack **a, t_stack **b, int chunk_size, t_params *flags)
+void	push_chunks(t_stack **a, t_stack **b, int c_size, t_params *flags)
 {
 	int	pushed;
 	int	chunk_min;
@@ -88,7 +88,7 @@ void	push_chunks(t_stack **a, t_stack **b, int chunk_size, t_params *flags)
 
 	pushed = 0;
 	chunk_min = 0;
-	chunk_max = chunk_size - 1;
+	chunk_max = c_size - 1;
 	while (*a)
 	{
 		if ((*a)->index >= chunk_min && (*a)->index <= chunk_max)
@@ -101,11 +101,11 @@ void	push_chunks(t_stack **a, t_stack **b, int chunk_size, t_params *flags)
 		else
 			ra(a, flags);
 
-		if (pushed == chunk_size)
+		if (pushed == c_size)
 		{
 			pushed = 0;
-			chunk_min += chunk_size;
-			chunk_max += chunk_size;
+			chunk_min += c_size;
+			chunk_max += c_size;
 		}
 	}
 }
@@ -113,12 +113,12 @@ void	push_chunks(t_stack **a, t_stack **b, int chunk_size, t_params *flags)
 void	medium_sort(t_stack **a, t_stack **b, t_params *flags)
 {
 	int	size;
-	int	chunk_count;
-	int	chunk_size;
+	int	c_count;
+	int	c_size;
 
 	size = ft_lstsize(*a);
-	chunk_count = get_chunk_count(size);
-	chunk_size = size / chunk_count;
-	push_chunks(a, b, chunk_size, flags);
+	c_count = get_chunk_count(size);
+	c_size = size / c_count;
+	push_chunks(a, b, c_size, flags);
 	rebuild_stack(a, b, flags);
 }

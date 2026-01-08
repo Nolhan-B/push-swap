@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 11:53:55 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:19:10 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	small_sort(t_stack **a, t_params *flags)
 		sort_two(a, flags);
 	else if (ft_lstsize(*a) == 3)
 		sort_three(a, flags);
-	else 
+	else
 		return ;
 }
 
@@ -79,15 +79,14 @@ void	insertion_sort(t_stack **a, t_stack **b, t_params *flags)
 		pa(a, b, flags);
 }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++TEST++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++TEST+++++++
 
 // Fonction pour afficher la pile et voir ce qui se passe
 
-void print_stacks(t_stack *a, t_stack *b)
+void	print_stacks(t_stack *a, t_stack *b)
 {
 	printf("\n  [ STACK A ]      [ STACK B ]\n");
 	printf("--------------------------------\n");
-	
 	while (a || b)
 	{
 		if (a)
@@ -96,8 +95,7 @@ void print_stacks(t_stack *a, t_stack *b)
 			a = a->next;
 		}
 		else
-			printf("      "); // Espace si A est plus courte que B
-			
+			printf("      ");
 		if (b)
 		{
 			printf("             %d\n", b->value);
@@ -109,7 +107,6 @@ void print_stacks(t_stack *a, t_stack *b)
 	printf("--------------------------------\n");
 }
 
-
 t_stack	*find_min(t_stack *a)
 {
 	t_stack	*min_value;
@@ -117,7 +114,6 @@ t_stack	*find_min(t_stack *a)
 
 	if (!a)
 		return (NULL);
-
 	current = a->next;
 	min_value = a;
 	while (current)
@@ -128,6 +124,7 @@ t_stack	*find_min(t_stack *a)
 	}
 	return (min_value);
 }
+
 int	get_index(t_stack *target, t_stack *a)
 {
 	int	index;
