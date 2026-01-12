@@ -163,7 +163,7 @@ void		complex_sort(t_stack **a, t_stack **b, t_params *flag);
 
 // COMPLEX_SORT.C
 void    	complex_sort(t_stack **a, t_stack **b, t_params *flag);
-void  		push_chunks_complex(t_stack **a, t_stack **b, t_params *flag);
+// void  		push_chunks_complex(t_stack **a, t_stack **b, t_params *flag);
 
 /* ************************************************************************** */
 /*                              DEBUG / PRINT                                */

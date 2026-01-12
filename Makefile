@@ -17,17 +17,24 @@ NAME = push_swap
 SRC = \
 algo_manager.c \
 check_error.c \
+complex_sort.c \
+flag_utils.c \
 ft_lst_utils.c \
+ft_printf_stderr.c \
+ft_split.c \
 ft_utils.c \
 insertion_sort_utils.c \
 insertion_sort.c \
+medium_sort_utils.c \
+medium_sort.c \
+printf_utils.c \
 sort_utils_a.c \
 sort_utils_ab_function.c \
 sort_utils_ab.c \
 sort_utils_b.c \
 stack_utils.c \
-	
-OBJ = $(SRC:.c=.o)  
+
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
