@@ -54,21 +54,21 @@ static int	ft_write_to_percent(const char **str)
 	return (len);
 }
 
-static int	ft_types(va_list args, char c)
+static int	ft_types(va_list *args, char c)
 {
 	int		len;
 
 	len = 0;
 	if (c == 'i' || c == 'd')
-		len += ft_putnbr(va_arg(args, int));
+		len += ft_putnbr(va_arg(*args, int));
 	else if (c == 's')
-		len += ft_putstr(va_arg(args, char *));
+		len += ft_putstr(va_arg(*args, char *));
 	else if (c == 'c')
-		len += ft_putchar(va_arg(args, unsigned int));
+		len += ft_putchar(va_arg(*args, unsigned int));
 	else if (c == '%')
 		len += ft_putchar('%');
 	else if (c == 'f')
-		len += ft_putfloat(va_arg(args, double), 2);
+		len += ft_putfloat(va_arg(*args, double), 2);
 	return (len);
 }
 
@@ -85,7 +85,7 @@ int	ft_printf_stderr(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			len += ft_types(args, *str);
+			len += ft_types(&args, *str);
 			str++;
 		}
 	}

@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h> // À supprimer à la fin
+# include <stdarg.h>
 
 /* ************************************************************************** */
 /*                                DEFINES                                   */
@@ -155,6 +156,10 @@ void		medium_sort(t_stack **a, t_stack **b, t_params *flags);
 void		push_chunks(t_stack **a, t_stack **b, int c_size, t_params *flags);
 void		rebuild_stack(t_stack **a, t_stack **b, t_params *flags);
 void		bring_max_to_top(t_stack **b, int max_index, t_params *flags);
+
+// COMPLEX_SORT.C
+void    	complex_sort(t_stack **a, t_stack **b, t_params *flag);
+void  		push_chunks_complex(t_stack **a, t_stack **b, t_params *flag);
 
 /* ************************************************************************** */
 /*                              DEBUG / PRINT                                */
