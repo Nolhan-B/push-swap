@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algo_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/08 11:19:51 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/12 12:44:53 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
-// {
-
-// }
-double	ft_disorder(t_stack *a)
+static double	ft_disorder(t_stack *a)
 {
 	int			wrong;
 	int			total_pairs;
@@ -43,17 +39,7 @@ double	ft_disorder(t_stack *a)
 	return (((double)wrong / total_pairs) * 100);
 }
 
-static void	ft_set_strat(t_params *flag, char *s, char *c, int type)
-{
-	flag->data.strat = s;
-	flag->data.class = c;
-	flag->simple = (type == 1);
-	flag->medium = (type == 2);
-	flag->complex = (type == 3);
-	flag->adaptive = (type == 4);
-}
-
-void	ft_print_bench(t_params *flags, double dis)
+static void	ft_print_bench(t_params *flags, double dis)
 {
 	int	*ops;
 
@@ -70,106 +56,57 @@ void	ft_print_bench(t_params *flags, double dis)
 		ops[RA], ops[RB], ops[RR], ops[RRA], ops[RRB], ops[RRR]);
 }
 
-void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
+static void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
 {
 	double	dis;
-	/*TOUT FONCTIONNE MANQUE JUSTE LES ALGO POUR POUVOIR DECOMMENTER*/
+
 	dis = ft_disorder(*a);
 	if (flag->adaptive == 1)
 	{
-		if (dis <= 10.0)
+		if (dis <= 20.0)
 		{
-		ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
+			ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
 		}
-	else if (dis <= 50.0)
-	{
-		ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
+		else if (dis <= 50.0)
+		{
+			ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
+		}
+		else if (dis > 50.0)
+		{
+			ft_set_strat(flag, "Adaptive (Quick Sort)", "O(n log n)", 3);
+		}
 	}
-	 	else if (dis > 50.0)
-	 	{
-	 		ft_set_strat(flag, "Adaptive (Radix)", "O(n log n)", 3);
-	 	}
-	 }
 	if (flag->simple == 1)
 		insertion_sort(a, b, flag);
 	else if (flag->medium == 1)
-	 	medium_sort(a, b, flag);
-	 else if (flag->complex == 1)
-	 	complex_sort(a, b, flag);
+		medium_sort(a, b, flag);
+	else if (flag->complex == 1)
+		complex_sort(a, b, flag);
 	ft_print_bench(flag, dis);
 }
 
-int	ft_flags(char *av, t_params *flag)
+static int	param_manager(int ac, char **av, t_params *flag, t_stack **a)
 {
-	if (!ft_strcmp(av, "--bench"))
-		flag->bench = 1;
-	else if (!ft_strcmp(av, "--simple"))
-		ft_set_strat(flag, "Simple (Insertion Sort)", "O(n2)", 1);
-	else if (!ft_strcmp(av, "--medium"))
-		ft_set_strat(flag, "Medium (Chunks Sort)", "O(n√n)", 2);
-	else if (!ft_strcmp(av, "--complex"))
-		ft_set_strat(flag, "Complex (Radix Sort)", "O(n log n)", 3);
-	else if (!ft_strcmp(av, "--adaptive"))
-		ft_set_strat(flag, "Adaptive", "O(n log n)", 4);
-	else
-		return (0);
-	return (1);
-}
+	int		start;
+	int		do_free;
+	char	**arg;
 
-int	parse_flag(char **av, t_params *flag)
-{
-	int	i;
-	int	j;
-
-	j = 1;
-	i = 1;
-	while (av[i] && i < 3)
-	{
-		if (av[i][0] == '-' && av[i][1] == '-')
-		{
-			if (!ft_flags(av[i], flag))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (j);
-}
-
-void	init_flag(t_params *flag)
-{
-	int	i;
-
-	i = 0;
-	flag->simple = 0;
-	flag->medium = 0;
-	flag->complex = 0;
-	flag->adaptive = 1;
-	flag->bench = 0;
-	flag->data.strat = "Adaptive";
-	flag->data.class = "O(n log n)";
-	flag->data.total = 0;
-	while (i < 11)
-	{
-		flag->data.ops[i] = 0;
-		i++;
-	}
-}
-
-int	param_manager(int ac, char **av, t_params *flag, t_stack **a)
-{
-	int	start;
-
+	do_free = 0;
 	if (ac < 2)
 		return (0);
 	init_flag(flag);
 	start = parse_flag(av, flag);
 	if (start <= 0)
 		return (0);
-	if (!is_av_valid(av, start))
-		return (0);
-	*a = ft_create_stack(av, start);
-	if (!*a)
+	if (use_split(ac, av, start))
+	{
+		arg = ft_split(av[start], ' ');
+		do_free = 1;
+		start = 0;
+	}
+	else
+		arg = av;
+	if (!ft_stack_creation(arg, start, do_free, a))
 		return (0);
 	ft_index_stack_elements(*a);
 	return (1);
@@ -188,12 +125,9 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	
+//	printf("\n--- AVANT LE TRI ---\n");
+	//print_stacks(a, b);
 	ft_select_sort(&a, &b, &flag);
-	//insertion_sort(&a, &b, &flag); // A remplacer par une fonction qui choisis le plus adapte avec le disorder si adaptive = 1
-	//medium_sort(&a, &b, &flag);
-	/* faut aussi que selon le choix du type de tri ca modifie la class de flags */
-	//ft_select_sort(&a, &b, &flag);
 	//printf("\n--- APRES LE TRI ---\n");
 	//print_stacks(a, b);
 	ft_free_stack(&a);

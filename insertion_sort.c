@@ -6,13 +6,13 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/07 15:19:10 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:35:29 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	small_sort(t_stack **a, t_params *flags)
+static void	small_sort(t_stack **a, t_params *flags)
 {
 	if (ft_lstsize(*a) == 2)
 		sort_two(a, flags);
@@ -22,13 +22,13 @@ void	small_sort(t_stack **a, t_params *flags)
 		return ;
 }
 
-void	init_stack_b(t_stack **a, t_stack **b, t_params *flags)
+static void	init_stack_b(t_stack **a, t_stack **b, t_params *flags)
 {
 	pb(a, b, flags);
 	pb(a, b, flags);
 }
 
-int	get_target_pos(t_stack *a, t_stack *b)
+static int	get_target_pos(t_stack *a, t_stack *b)
 {
 	t_stack	*tmp;
 	int		pos;
@@ -49,7 +49,7 @@ int	get_target_pos(t_stack *a, t_stack *b)
 	return (target);
 }
 
-void	final_rotate_b(t_stack **b, t_params *flags)
+static void	final_rotate_b(t_stack **b, t_params *flags)
 {
 	int	max_pos;
 	int	size;
@@ -107,38 +107,38 @@ void	print_stacks(t_stack *a, t_stack *b)
 	printf("--------------------------------\n");
 }
 
-t_stack	*find_min(t_stack *a)
-{
-	t_stack	*min_value;
-	t_stack	*current;
+// t_stack	*find_min(t_stack *a)
+// {
+// 	t_stack	*min_value;
+// 	t_stack	*current;
 
-	if (!a)
-		return (NULL);
-	current = a->next;
-	min_value = a;
-	while (current)
-	{
-		if (min_value->value > current->value)
-			min_value = current;
-		current = current->next;
-	}
-	return (min_value);
-}
+// 	if (!a)
+// 		return (NULL);
+// 	current = a->next;
+// 	min_value = a;
+// 	while (current)
+// 	{
+// 		if (min_value->value > current->value)
+// 			min_value = current;
+// 		current = current->next;
+// 	}
+// 	return (min_value);
+// }
 
-int	get_index(t_stack *target, t_stack *a)
-{
-	int	index;
+// int	get_index(t_stack *target, t_stack *a)
+// {
+// 	int	index;
 
-	index = 0;
-	while (a)
-	{
-		if (a == target)
-			return (index);
-		index++;
-		a = a->next;
-	}
-	return (-1);
-}
+// 	index = 0;
+// 	while (a)
+// 	{
+// 		if (a == target)
+// 			return (index);
+// 		index++;
+// 		a = a->next;
+// 	}
+// 	return (-1);
+// }
 
 // int main(void)
 // {
