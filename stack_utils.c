@@ -6,13 +6,13 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:31:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/06 13:41:44 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:08:25 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_dup(t_stack *stack, int value)
+static int	is_dup(t_stack *stack, int value)
 {
 	t_stack	*tmp;
 
@@ -28,7 +28,7 @@ int	is_dup(t_stack *stack, int value)
 	return (0);
 }
 
-t_stack	*ft_create_stack(char **av, int start)
+static t_stack	*ft_create_stack(char **av, int start)
 {
 	t_stack	*a;
 	t_stack	*new;
@@ -55,11 +55,31 @@ t_stack	*ft_create_stack(char **av, int start)
 	return (a);
 }
 
-t_stack *ft_index_stack_elements(t_stack *a)
+int	ft_stack_creation(char **arg, int start, int do_free, t_stack **a)
 {
-	t_stack *current;
-	t_stack *tmp;
-	int      index;
+	if (!is_av_valid(arg, start))
+	{
+		if (do_free == 1)
+			ft_free_split(arg);
+		return (0);
+	}
+	*a = ft_create_stack(arg, start);
+	if (!*a)
+	{
+		if (do_free == 1)
+			ft_free_split(arg);
+		return (0);
+	}
+	if (do_free == 1)
+		ft_free_split(arg);
+	return (1);
+}
+
+t_stack	*ft_index_stack_elements(t_stack *a)
+{
+	t_stack	*current;
+	t_stack	*tmp;
+	int		index;
 
 	current = a;
 	while (current)

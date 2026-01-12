@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-long	ft_atol(const char *nptr)
+long long	ft_atol(const char *nptr)
 {
 	int			i;
-	long		result;
-	long		sign;
+	long long	result;
+	long long	sign;
 
 	result = 0;
 	sign = 1;
@@ -33,8 +33,6 @@ long	ft_atol(const char *nptr)
 	{
 		result = result * 10;
 		result = result + nptr[i] - '0';
-		if (result > 2147483648)
-			return (2147483649);
 		i++;
 	}
 	return (result * sign);

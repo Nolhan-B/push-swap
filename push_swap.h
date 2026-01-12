@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/08 10:39:08 by nbilyj           ###   ########.fr       */
+/*   Updated: 2026/01/12 12:08:06 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <stdarg.h>
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h> // À supprimer à la fin
@@ -107,7 +108,7 @@ void		rrr(t_stack **a, t_stack **b, t_params *flags);
 /* ************************************************************************** */
 
 // FT_UTILS.C
-long		ft_atol(const char *nptr);
+long long	ft_atol(const char *nptr);
 int			ft_strcmp(char *s1, char *s2);
 
 /* ************************************************************************** */
@@ -125,8 +126,6 @@ int			ft_lstsize(t_stack *lst);
 /* ************************************************************************** */
 
 // STACK_UTILS.C
-int			is_dup(t_stack *stack, int value);
-t_stack		*ft_create_stack(char **av, int start);
 t_stack		*ft_index_stack_elements(t_stack *a);
 
 /* ************************************************************************** */
@@ -136,6 +135,7 @@ t_stack		*ft_index_stack_elements(t_stack *a);
 // CHECK_ERRORS.C
 int			is_av_valid(char **av, int start);
 void		ft_free_stack(t_stack **stack);
+int			use_split(int ac, char **av, int start);
 
 /* ************************************************************************** */
 /*                              SORTING                                      */
@@ -155,6 +155,10 @@ void		medium_sort(t_stack **a, t_stack **b, t_params *flags);
 void		push_chunks(t_stack **a, t_stack **b, int c_size, t_params *flags);
 void		rebuild_stack(t_stack **a, t_stack **b, t_params *flags);
 void		bring_max_to_top(t_stack **b, int max_index, t_params *flags);
+int			get_index_pos(t_stack *b, int index);
+
+// COMPLEX_SORT.C
+void		complex_sort(t_stack **a, t_stack **b, t_params *flag);
 
 /* ************************************************************************** */
 /*                              DEBUG / PRINT                                */
@@ -169,5 +173,18 @@ int			ft_printf_stderr(const char *str, ...);
 int			ft_putchar(unsigned int c);
 int			ft_putnbr(int n);
 int			ft_putstr(const char *s);
+
+char		**ft_split(char const *s, char c);
+void		ft_free_split(char **res);
+int			ft_stack_creation(char **arg, int start, int do_free, t_stack **a);
+
+/* ************************************************************************** */
+/*                              FLAG_UTILS                                    */
+/* ************************************************************************** */
+
+//FLAG_UTILS.C
+void		ft_set_strat(t_params *flag, char *s, char *c, int type);
+void		init_flag(t_params *flag);
+int			parse_flag(char **av, t_params *flag);
 
 #endif
