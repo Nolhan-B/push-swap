@@ -281,4 +281,37 @@ Le travail a été réparti de manière équilibrée autour des grands axes du p
 
 Les décisions algorithmiques et architecturales ont été prises conjointement, avec des phases régulières de revue de code et de tests afin de garantir la cohérence, la robustesse et la conformité au sujet.
 
-//TODO : voir bas de page 12
+## Ressources
+
+### Références Classiques & Documentation
+
+**Tri par Insertion (Algo Simple)**
+* [GeeksforGeeks - Insertion Sort](https://www.geeksforgeeks.org/insertion-sort/): Un guide complet pour comprendre la logique $O(N^2)$ utilisée pour les petites piles.
+* [Khan Academy - Insertion Sort Algorithm](https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort): Excellente explication visuelle et théorique.
+
+**Tri par Chunks / Bucket Sort (Algo Medium)**
+* **GeeksforGeeks - Bucket Sort**
+  * *Description :* Le fondement théorique de l'algorithme "Medium". Explique comment la division des données en sous-groupes (buckets ou chunks) permet de réduire la complexité du problème.
+  * *Lien :* https://www.geeksforgeeks.org/bucket-sort-2/
+
+**Logique Push_swap (Algo Complexe)**
+* **Le Concept "Butterfly" / Intervalle (Range) :** Inspiré par des techniques souvent discutées dans la communauté 42. Le concept central repose sur l'envoi d'éléments vers la pile B selon une fenêtre dynamique (range) pour créer une distribution pré-triée.
+* [Medium - Push_swap: The least amount of moves with two stacks](https://medium.com/@jamierobertson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+
+## Déclaration d'Utilisation de l'IA
+
+Conformément aux directives du projet, cette section détaille l'utilisation de l'Intelligence Artificielle (LLM) au cours du développement de ce projet.
+
+**Assistant IA utilisé :** Gemini (Google)
+
+**Portée de l'utilisation :**
+
+1.  **Clarification des Concepts :**
+    * L'IA a été utilisée pour "traduire" et simplifier le sujet du projet.
+    * Explication de la complexité théorique ($O(N^2)$ vs $O(N \log N)$) des algorithmes de tri implémentés.
+
+3.  **Documentation :**
+    * Génération de templates et de la structure pour ce fichier `README.md`, incluant les arguments de complexité.
+
+**Note :** Toute la logique, les stratégies de tri et les détails finaux de l'implémentation ont été revus, testés et compris par le développeur.
+
