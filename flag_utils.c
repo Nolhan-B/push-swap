@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 11:21:13 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/12 12:00:16 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/13 11:24:09 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_flags(char *av, t_params *flag)
 	else if (!ft_strcmp(av, "--medium"))
 		ft_set_strat(flag, "Medium (Chunks Sort)", "O(n√n)", 2);
 	else if (!ft_strcmp(av, "--complex"))
-		ft_set_strat(flag, "Complex (Quick Sort)", "O(n log n)", 3);
+		ft_set_strat(flag, "Complex (Butterfly Sort)", "O(n log n)", 3);
 	else if (!ft_strcmp(av, "--adaptive"))
 		ft_set_strat(flag, "Adaptive", "O(n log n)", 4);
 	else

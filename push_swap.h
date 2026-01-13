@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/12 12:08:06 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/13 11:07:29 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h> // À supprimer à la fin
-# include <stdarg.h>
 
 /* ************************************************************************** */
 /*                                DEFINES                                   */
@@ -160,10 +158,6 @@ int			get_index_pos(t_stack *b, int index);
 
 // COMPLEX_SORT.C
 void		complex_sort(t_stack **a, t_stack **b, t_params *flag);
-
-// COMPLEX_SORT.C
-void    	complex_sort(t_stack **a, t_stack **b, t_params *flag);
-// void  		push_chunks_complex(t_stack **a, t_stack **b, t_params *flag);
 
 /* ************************************************************************** */
 /*                              DEBUG / PRINT                                */

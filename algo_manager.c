@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/12 12:44:53 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:25:50 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ static void	ft_select_sort(t_stack **a, t_stack **b, t_params *flag)
 	dis = ft_disorder(*a);
 	if (flag->adaptive == 1)
 	{
-		if (dis <= 20.0)
+		if (dis < 20.0)
 		{
 			ft_set_strat(flag, "Adaptive (Insertion)", "O(n2)", 1);
 		}
-		else if (dis <= 50.0)
+		else if (dis >= 20.0 && dis < 50.0)
 		{
 			ft_set_strat(flag, "Adaptive (Chunk-based)", "O(n√n)", 2);
 		}
-		else if (dis > 50.0)
+		else if (dis >= 50.0)
 		{
-			ft_set_strat(flag, "Adaptive (Quick Sort)", "O(n log n)", 3);
+			ft_set_strat(flag, "Adaptive (Butterfly Sort)", "O(n log n)", 3);
 		}
 	}
 	if (flag->simple == 1)
@@ -125,11 +125,7 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-//	printf("\n--- AVANT LE TRI ---\n");
-	//print_stacks(a, b);
 	ft_select_sort(&a, &b, &flag);
-	//printf("\n--- APRES LE TRI ---\n");
-	//print_stacks(a, b);
 	ft_free_stack(&a);
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	push_chunks_complex(t_stack **a, t_stack **b, t_params *flag)
+static void	push_complex(t_stack **a, t_stack **b, t_params *flag)
 {
 	int	i;
 	int	range;
@@ -43,6 +43,6 @@ static void	push_chunks_complex(t_stack **a, t_stack **b, t_params *flag)
 
 void	complex_sort(t_stack **a, t_stack **b, t_params *flag)
 {
-	push_chunks_complex(a, b, flag);
+	push_complex(a, b, flag);
 	rebuild_stack(a, b, flag);
 }

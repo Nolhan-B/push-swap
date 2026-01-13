@@ -163,25 +163,26 @@ Adapté aux tailles moyennes (100–500)
 - Organiser B intelligemment
 - Reconstruire A en ramenant les max successifs
 
-#### Fonctions clés :
-- push_chunks
-- bring_max_to_top
-- rebuild_stack
 
 #### Complexité :
 
 - Temps : O(n√n)
 	- Bon compromis entre simplicité et performance
 
-### 3. Complex — Radix / Quick-like Sort (--complex)
+### 3. Complex — Butterfly Sort (--complex)
 
-Utilisé pour les grandes entrées, basé sur l’indexation et des plages larges
+Conçu pour les grandes piles (100 à 500 éléments).
+
+#### Principe :
+
+- Utiliser une fenêtre glissante sur les index pour transférer A vers B.
+- Optimiser le placement dans B (forme de "sablier") pour faciliter le retour.
+- Reconstruire A en récupérant successivement le maximum de B.
 
 #### Complexité :
 
 - Temps : O(n log n)
-	- Meilleures performances globales
-
+	- Optimisé pour 500 éléments (~5000 coups).
   
 
 ### 4. Adaptive (--adaptive, par défaut)
@@ -190,7 +191,7 @@ Le programme choisit automatiquement l’algorithme selon le désordre initial :
 
 - ≤ 20% : Insertion sort
 - ≤ 50% : Chunk-based sort
-- 50% : Complex sort
+-   50% : Butterfly sort
 
   
 
@@ -259,3 +260,6 @@ Ce projet met l’accent sur :
 - une architecture évolutive et testable
 
 Chaque stratégie est isolée, mesurable et interchangeable, ce qui permet une évolution progressive du projet.
+
+
+//TODO : voir bas de page 12
