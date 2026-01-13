@@ -189,9 +189,9 @@ Conçu pour les grandes piles (100 à 500 éléments).
 
 Le programme choisit automatiquement l’algorithme selon le désordre initial :
 
-- ≤ 20% : Insertion sort
-- ≤ 50% : Chunk-based sort
--   50% : Butterfly sort
+- < 20% : 			Insertion sort
+- ≥ 20% && < 50% : 	Chunk-based sort
+- ≥ 50% : 			Butterfly sort
 
   
 
@@ -228,7 +228,7 @@ Le projet est compilé à l’aide d’un Makefile fourni.
 	make
 ```
 
-#### Utilisation
+#### Instructions
 
 Le programme prend une liste d’entiers en arguments et affiche sur la sortie standard la suite d’opérations permettant de trier la pile.
 
@@ -261,5 +261,24 @@ Ce projet met l’accent sur :
 
 Chaque stratégie est isolée, mesurable et interchangeable, ce qui permet une évolution progressive du projet.
 
+## Contributions
+
+Ce projet a été réalisé en collaboration par nbilyj et nbarbosa.
+
+Le travail a été réparti de manière équilibrée autour des grands axes du projet :
+
+- nbilyj :
+	- Mise en place de l’architecture globale du projet
+	- Implémentation des structures de données et de la gestion des piles
+	- Implémentation des opérations bas niveau (swap, push, rotate)
+	- Relecture, tests et amélioration de la lisibilité du code
+
+- nbarbosa :
+	- Gestion des flags, du mode adaptatif et du benchmarking
+	- Développement des algorithmes de tri
+	- Outils de mesure, statistiques et affichage conditionnel
+	- Optimisation des performances et gestion des cas limites
+
+Les décisions algorithmiques et architecturales ont été prises conjointement, avec des phases régulières de revue de code et de tests afin de garantir la cohérence, la robustesse et la conformité au sujet.
 
 //TODO : voir bas de page 12
