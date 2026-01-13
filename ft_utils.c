@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:45:32 by nbarbosa          #+#    #+#             */
-/*   Updated: 2025/12/11 09:29:59 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:14:44 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(const char *nptr)
+long long	ft_atol(const char *nptr)
 {
-	int		i;
-	int		result;
-	long	sign;
+	int			i;
+	long long	result;
+	long long	sign;
 
 	result = 0;
 	sign = 1;
@@ -38,17 +38,12 @@ long	ft_atol(const char *nptr)
 	return (result * sign);
 }
 
-int	ft_lstsize(t_stack *lst)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (lst)
-	{
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-		lst = lst->next;
-	}
-	return (i);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
- 
