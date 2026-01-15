@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:23:10 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/13 11:05:43 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/15 09:44:59 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static void	final_rotate_b(t_stack **b, t_params *flags)
 
 void	insertion_sort(t_stack **a, t_stack **b, t_params *flags)
 {
+	if (ft_disorder(*a) == 0.0)
+		return ;
 	if (ft_lstsize(*a) <= 3)
 		return (small_sort(a, flags));
 	init_stack_b(a, b, flags);

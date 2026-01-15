@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/13 11:07:29 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/15 09:45:36 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
-# include <limits.h>
+# include <stdio.h>
 
 /* ************************************************************************** */
 /*                                DEFINES                                   */
@@ -135,6 +135,7 @@ t_stack		*ft_index_stack_elements(t_stack *a);
 int			is_av_valid(char **av, int start);
 void		ft_free_stack(t_stack **stack);
 int			use_split(int ac, char **av, int start);
+double		ft_disorder(t_stack *a);
 
 /* ************************************************************************** */
 /*                              SORTING                                      */
@@ -176,6 +177,7 @@ int			ft_putstr(const char *s);
 char		**ft_split(char const *s, char c);
 void		ft_free_split(char **res);
 int			ft_stack_creation(char **arg, int start, int do_free, t_stack **a);
+//void		print_stacks(t_stack *a, t_stack *b);
 
 /* ************************************************************************** */
 /*                              FLAG_UTILS                                    */

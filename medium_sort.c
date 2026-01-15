@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbilyj            #+#    #+#             */
-/*   Updated: 2026/01/12 12:03:14 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:59:06 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	medium_sort(t_stack **a, t_stack **b, t_params *flags)
 	int	c_count;
 	int	c_size;
 
+	if (ft_disorder(*a) == 0.0)
+		return ;
 	size = ft_lstsize(*a);
 	if (size < 1)
 		return ;

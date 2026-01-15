@@ -43,6 +43,8 @@ static void	push_complex(t_stack **a, t_stack **b, t_params *flag)
 
 void	complex_sort(t_stack **a, t_stack **b, t_params *flag)
 {
+	if (ft_disorder(*a) == 0.0)
+		return ;
 	push_complex(a, b, flag);
 	rebuild_stack(a, b, flag);
 }

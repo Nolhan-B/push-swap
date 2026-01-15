@@ -6,7 +6,7 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:35:44 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/12 11:46:44 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:56:13 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	use_split(int ac, char **av, int start)
 	int	i;
 
 	i = 0;
-	if (start < ac - 1)
+	if (start > ac - 1)
 		return (0);
 	while (av[start][i])
 	{

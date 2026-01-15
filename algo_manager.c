@@ -6,13 +6,13 @@
 /*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:31 by nbarbosa          #+#    #+#             */
-/*   Updated: 2026/01/13 12:25:50 by nbarbosa         ###   ########.fr       */
+/*   Updated: 2026/01/15 09:46:38 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static double	ft_disorder(t_stack *a)
+double	ft_disorder(t_stack *a)
 {
 	int			wrong;
 	int			total_pairs;
