@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbilyj <nbilyj@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nbarbosa <nbarbosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 09:41:52 by nbarbosa          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/15 09:45:36 by nbarbosa         ###   ########.fr       */
-=======
-/*   Updated: 2026/01/13 15:11:17 by nbilyj           ###   ########.fr       */
->>>>>>> 2db2ae615d2f87eca619f8c296b3dd006d5dc239
+/*   Updated: 2026/01/15 09:53:12 by nbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -20,10 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
-<<<<<<< HEAD
 # include <stdio.h>
-=======
->>>>>>> 2db2ae615d2f87eca619f8c296b3dd006d5dc239
 
 /* ************************************************************************** */
 /*                                DEFINES                                   */
